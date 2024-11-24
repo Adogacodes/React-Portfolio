@@ -1,0 +1,108 @@
+.Navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  z-index: 10;
+  /* Media query for smaller screens */
+}
+.Navbar .logo {
+  height: 100px;
+  margin: 0;
+  margin-top: -35px;
+}
+.Navbar .Navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  margin-top: -35px;
+}
+.Navbar .Navbar-menu li {
+  margin: 20px;
+  margin-top: 17px;
+  position: relative;
+}
+.Navbar .Navbar-menu li a {
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, text-shadow 0.3s ease, color 0.3s ease;
+}
+.Navbar .Navbar-menu li a:hover {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9), 0 0 15px rgba(255, 255, 255, 0.7), 0 0 25px rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+  color: #ffffff;
+}
+.Navbar .hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 11; /* Make sure the hamburger stays on top of the menu */
+  position: relative; /* Adjust for correct positioning */
+}
+.Navbar .hamburger .bar {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  transition: 0.3s;
+}
+.Navbar .hamburger.open .bar:nth-child(1) {
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0;
+}
+.Navbar .hamburger.open .bar:nth-child(2) {
+  opacity: 0; /* Hide the middle bar */
+}
+.Navbar .hamburger.open .bar:nth-child(3) {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 0;
+}
+@media (max-width: 768px) {
+  .Navbar {
+    justify-content: space-between;
+    /* Navbar menu adjustments */
+    /* Display hamburger icon on small screens */
+  }
+  .Navbar .logo {
+    margin-top: -35px;
+    margin-left: -15px;
+  }
+  .Navbar .Navbar-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: -100%; /* Initially hidden off-screen to the right */
+    width: 250px; /* Menu width */
+    height: 100vh; /* Full viewport height */
+    background-color: rgba(0, 0, 0, 0.8); /* Black transparent background */
+    padding: 40px 0;
+    gap: 20px;
+    transition: right 0.3s ease; /* Slide-in transition */
+    /* Divider between the menu items */
+  }
+  .Navbar .Navbar-menu.open {
+    right: 0; /* Slide-in from the right */
+  }
+  .Navbar .Navbar-menu li {
+    text-align: center;
+    width: 100%;
+  }
+  .Navbar .Navbar-menu li + li {
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Thin white divider */
+    padding-top: 10px;
+  }
+  .Navbar .hamburger {
+    display: flex;
+    position: absolute;
+    top: 20px; /* Move hamburger a little bit to the top */
+    right: 20px; /* Align hamburger to the right */
+    z-index: 12; /* Ensure it is above the menu */
+  }
+}/*# sourceMappingURL=Navbar.css.map */

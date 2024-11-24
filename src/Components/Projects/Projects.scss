@@ -1,0 +1,288 @@
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #121212;
+
+  .projects-header {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px; /* Add space between header and project items */
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px; /* Reduced margin to fit the design */
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+
+  .project {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1000px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    position: relative;
+    transition: transform 0.3s ease;
+
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .project-image-container {
+      position: relative;
+      width: 45%;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+      }
+
+      &:hover::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+
+      .project-links {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 20px;
+        opacity: 0;
+        z-index: 2;
+        transition: opacity 0.3s ease;
+
+        a {
+          font-family: 'Roboto', sans-serif;
+          font-size: 18px;
+          color: #fff;
+          background-color: rgba(255, 255, 255, 0.1);
+          padding: 10px 20px;
+          border-radius: 5px;
+          text-decoration: none;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          text-transform: uppercase;
+        }
+
+        a.github-link,
+        a.website-link {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        a:hover {
+          transform: scale(1.1);
+          box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+        }
+      }
+
+      &:hover .project-links {
+        opacity: 1;
+      }
+    }
+
+    .project-description {
+      width: 50%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      height: 100%;
+
+      h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-family: 'Roboto', sans-serif;
+        color: #fff;
+      }
+
+      p {
+        font-size: 16px;
+        color: #ccc;
+        line-height: 1.5;
+      }
+    }
+
+    
+  }
+
+  .project-links-visible-sm {
+    display: none;
+  }
+
+  /* Media Queries for smaller screens */
+
+  /* For tablets and mobile devices */
+  @media (max-width: 768px) {
+
+    .project-links {
+      .github-link, .website-link {
+        display: none;
+      }
+    }
+
+    .project-links-visible-sm {
+        margin-top: 20px;
+        display: flex;
+        gap: 30px;
+
+        .github-link, .website-link {
+          display: block;
+          font-family: 'Roboto', sans-serif;
+          font-size: 18px;
+          color: #fff;
+          background-color: rgba(255, 255, 255, 0.1);
+          padding: 10px 20px;
+          border-radius: 5px;
+          text-decoration: none;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          text-transform: uppercase;
+
+          &:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+          }
+        }
+    } 
+
+
+
+    .project {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 40px;
+
+      &.reverse {
+        flex-direction: column;
+      }
+    }
+
+    .project-image-container {
+      margin-top: 10px;
+      min-width: 60%;
+      min-height: 250px;
+      margin-bottom: 20px;
+
+      &:hover::after {
+        transform: none; /* Disable scaling */
+        box-shadow: none; /* Remove box-shadow */
+      }
+
+      img {
+        min-width: 100%;
+        
+      }
+    }
+
+    .project-description {
+      min-width: 70%;
+      text-align: center;
+    }
+
+    .project-links {
+      opacity: 1; /* Make links always visible on smaller screens */
+      gap: 15px;
+      font-size: 16px;
+      visibility: visible;
+    }
+
+    .project-description h3 {
+      font-size: 22px;
+      text-align: center;
+    }
+
+    .project-description p {
+      font-size: 15px;
+      text-align: center;
+    }
+  }
+
+  /* For mobile screens */
+  @media (max-width: 480px) {
+    .project-links-visible-sm {
+      display: flex;
+    }
+
+    .project {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .project-image-container {
+      width: 100%; /* Full width for mobile */
+      max-height: 250px;
+      margin-bottom: 15px;
+    }
+
+    .project-description {
+      width: 100%; /* Full width for description on mobile */
+      padding: 10px;
+    }
+
+    .project-links {
+      gap: 10px;
+      font-size: 16px;
+      opacity: 1; /* Ensure links are visible */
+    }
+
+    .project-description h3 {
+      font-size: 20px;
+    }
+
+    .project-description p {
+      font-size: 14px;
+    }
+
+    &:hover {
+      transform: none; 
+      box-shadow: none;
+    }
+  }
+}

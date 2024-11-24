@@ -1,0 +1,144 @@
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; /* Added padding to prevent overflow on smaller screens */
+  text-align: center;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+}
+
+.skills-container h2 {
+  font-size: 2rem;
+  margin-bottom: 60px; /* Reduce margin for smaller screens */
+  color: #333;
+  font-size: 2.5em;
+
+}
+
+/* Skill list styling */
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: -10px;
+  row-gap: 70px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* Center content */
+}
+
+/* Individual skill item styling */
+.skill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  transition: transform 0.3s ease;
+}
+
+.skill img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+}
+
+.skill:hover img {
+  transform: scale(1.1);
+}
+
+.skill-name {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  visibility: hidden;
+}
+
+.skill:hover .skill-name {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(10px);
+}
+
+
+/* Tablet and small screen adjustments */
+@media (max-width: 768px) {
+  .skill-name {
+    opacity: 1;
+    visibility: visible;
+    position: static;
+    transform: none;
+    margin-top: 5px;
+  }
+
+
+  .skills-container {
+    padding: 10px; /* Extra padding for containment */
+  }
+
+  .skills-list {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 30px;
+  }
+
+  .skill img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .skill {
+    flex-direction: column;
+  }
+
+  .skills-container h2 {
+    margin-bottom: 40px;
+
+  }
+
+  .skill:hover img {
+    transform: none;
+  }
+
+  .skill:hover .skill-name {
+    transform: none;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .skills-container {
+    padding: 5px; /* Additional padding on small screens */
+    // margin-bottom: 20px; /* Space below to avoid overlap with other components */
+
+    h2 {
+      margin-top: -50px;
+    }
+  }
+
+  .skills-list {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 20px;
+  }
+
+  .skill img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .skill-name {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,176 @@
+// Footer.scss
+.footer {
+  background-color: #1a1a1a; /* Dark background */
+  color: #fff; /* Light text */
+  padding: 40px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow above the footer */
+  transition: opacity 1s ease, transform 1s ease;
+
+  &.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensure everything is horizontally centered */
+    justify-content: center; /* Vertically center everything */
+    width: 100%; /* Make sure it takes the full width */
+    text-align: center; /* Ensure text inside is aligned to the center */
+  }
+
+  /* Footer Links */
+  .footer-links {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row; /* Default to row layout on large screens */
+    justify-content: center; /* Center the links */
+    gap:100px; /* Add more space between links */
+    cursor: pointer;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+
+      /* Glow effect on hover */
+      &:hover {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+      }
+    }
+  }
+
+  /* Social Media Link */
+  .footer-social {
+    margin-bottom: 20px;
+
+    .github-link {
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+      margin-left: -25px;
+
+      &:hover {
+        color: #333;
+        transform: scale(1.1);
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.3) 25%, rgba(0, 0, 0, 0.2) 50%, rgba(255, 255, 255, 0.3) 75%);
+        background-size: 200% 200%;
+        animation: glitter 2s infinite linear;
+        z-index: -1;
+        border-radius: 5px;
+      }
+
+      @keyframes glitter {
+        0% {
+          background-position: 200% 200%;
+        }
+        100% {
+          background-position: -200% -200%;
+        }
+      }
+    }
+  }
+
+  /* Contact Information */
+  .footer-contact {
+    margin-bottom: 20px;
+
+    p {
+      font-size: 1rem;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+
+        &:hover {
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+        }
+      }
+    }
+  }
+
+  /* Copyright */
+  .footer-copyright {
+    margin-top: 20px;
+    p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  }
+
+  /* Tablet Layout (Max-width: 768px) */
+  @media (max-width: 768px) {
+    .footer-content {
+      padding: 20px;
+    }
+
+    .footer-links {
+      flex-direction: column; /* Stack links vertically */
+      gap: 35px; /* Add space between each link */
+      margin-bottom: 35px;
+    }
+
+    .footer-social,
+    .footer-contact {
+      margin-bottom: 15px;
+    }
+
+    .footer-copyright p {
+      font-size: 1rem; /* Slightly smaller text */
+    }
+
+    .github-link {
+      margin-right: -25px;
+    }
+  }
+
+  /* Mobile Layout (Max-width: 480px) */
+  @media (max-width: 480px) {
+    padding: 30px 15px; /* Adjust padding for smaller screens */
+
+    .footer-links a {
+      font-size: 1rem; /* Smaller font size */
+    }
+
+    .footer-social .github-link {
+      font-size: 1rem; /* Smaller font size */
+      padding: 4px 8px;
+    }
+
+    .footer-contact p {
+      font-size: 0.9rem; /* Smaller font size for contact info */
+    }
+
+    .footer-copyright p {
+      font-size: 0.8rem; /* Smaller copyright text */
+    }
+
+    /* Ensure everything is centered in mobile view */
+    .footer-content {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-copyright {
+      text-align: center; /* Ensure copyright text is centered */
+    }
+  }
+}
