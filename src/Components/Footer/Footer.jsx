@@ -42,7 +42,7 @@ const Footer = () => {
         {/* Social Media (GitHub) Link */}
         <div className="footer-social">
           <a
-            href="https://github.com/your-username"
+            href="https://github.com/Adogacodes"
             target="_blank"
             rel="noopener noreferrer"
             className="github-link"
