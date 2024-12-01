@@ -29,6 +29,7 @@
   flex-direction: row; /* Default to row layout on large screens */
   justify-content: center; /* Center the links */
   gap: 100px; /* Add more space between links */
+  cursor: pointer;
 }
 .footer .footer-links a {
   color: #fff;

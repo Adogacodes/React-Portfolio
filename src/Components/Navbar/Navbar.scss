@@ -24,7 +24,6 @@
     li {
       margin: 20px;
       margin-top: 17px;
-      position: relative;
 
       a {
         text-decoration: none;
@@ -32,7 +31,8 @@
         transition: transform 0.2s ease, text-shadow 0.3s ease, color 0.3s ease;
 
         &:hover {
-          text-shadow: 0 0 8px rgba(255, 255, 255, 0.9), 0 0 15px rgba(255, 255, 255, 0.7), 0 0 25px rgba(255, 255, 255, 0.5);
+          text-shadow: 0 0 8px rgba(255, 255, 255, 0.9),
+            0 0 15px rgba(255, 255, 255, 0.7), 0 0 25px rgba(255, 255, 255, 0.5);
           transform: scale(1.1);
           color: #ffffff;
         }
@@ -41,12 +41,11 @@
   }
 
   .hamburger {
-    display: none;
+    display: none; /* Hidden by default */
     cursor: pointer;
     flex-direction: column;
     gap: 5px;
-    z-index: 11; /* Make sure the hamburger stays on top of the menu */
-    position: relative; /* Adjust for correct positioning */
+    z-index: 12;
 
     .bar {
       width: 30px;
@@ -81,22 +80,22 @@
       margin-left: -15px;
     }
 
-    /* Navbar menu adjustments */
     .Navbar-menu {
-      display: flex;
+      display: none;
       flex-direction: column;
       position: absolute;
       top: 0;
-      right: -100%; /* Initially hidden off-screen to the right */
-      width: 250px; /* Menu width */
-      height: 100vh; /* Full viewport height */
-      background-color: rgba(0, 0, 0, 0.8); /* Black transparent background */
+      right: -100%; /* Hidden off-screen */
+      width: 250px;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
       padding: 40px 0;
       gap: 20px;
-      transition: right 0.3s ease; /* Slide-in transition */
+      transition: right 0.3s ease;
 
       &.open {
-        right: 0; /* Slide-in from the right */
+        display: flex;
+        right: 0; /* Slide into view */
       }
 
       li {
@@ -104,20 +103,17 @@
         width: 100%;
       }
 
-      /* Divider between the menu items */
       li + li {
-        border-top: 1px solid rgba(255, 255, 255, 0.3); /* Thin white divider */
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
         padding-top: 10px;
       }
     }
 
-    /* Display hamburger icon on small screens */
     .hamburger {
-      display: flex;
+      display: flex; /* Displayed only on smaller screens */
       position: absolute;
-      top: 20px; /* Move hamburger a little bit to the top */
-      right: 20px; /* Align hamburger to the right */
-      z-index: 12; /* Ensure it is above the menu */
+      top: 20px;
+      right: 20px;
     }
   }
 }

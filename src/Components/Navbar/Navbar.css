@@ -24,7 +24,6 @@
 .Navbar .Navbar-menu li {
   margin: 20px;
   margin-top: 17px;
-  position: relative;
 }
 .Navbar .Navbar-menu li a {
   text-decoration: none;
@@ -37,12 +36,11 @@
   color: #ffffff;
 }
 .Navbar .hamburger {
-  display: none;
+  display: none; /* Hidden by default */
   cursor: pointer;
   flex-direction: column;
   gap: 5px;
-  z-index: 11; /* Make sure the hamburger stays on top of the menu */
-  position: relative; /* Adjust for correct positioning */
+  z-index: 12;
 }
 .Navbar .hamburger .bar {
   width: 30px;
@@ -66,43 +64,40 @@
 @media (max-width: 768px) {
   .Navbar {
     justify-content: space-between;
-    /* Navbar menu adjustments */
-    /* Display hamburger icon on small screens */
   }
   .Navbar .logo {
     margin-top: -35px;
     margin-left: -15px;
   }
   .Navbar .Navbar-menu {
-    display: flex;
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 0;
-    right: -100%; /* Initially hidden off-screen to the right */
-    width: 250px; /* Menu width */
-    height: 100vh; /* Full viewport height */
-    background-color: rgba(0, 0, 0, 0.8); /* Black transparent background */
+    right: -100%; /* Hidden off-screen */
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 40px 0;
     gap: 20px;
-    transition: right 0.3s ease; /* Slide-in transition */
-    /* Divider between the menu items */
+    transition: right 0.3s ease;
   }
   .Navbar .Navbar-menu.open {
-    right: 0; /* Slide-in from the right */
+    display: flex;
+    right: 0; /* Slide into view */
   }
   .Navbar .Navbar-menu li {
     text-align: center;
     width: 100%;
   }
   .Navbar .Navbar-menu li + li {
-    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Thin white divider */
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
     padding-top: 10px;
   }
   .Navbar .hamburger {
-    display: flex;
+    display: flex; /* Displayed only on smaller screens */
     position: absolute;
-    top: 20px; /* Move hamburger a little bit to the top */
-    right: 20px; /* Align hamburger to the right */
-    z-index: 12; /* Ensure it is above the menu */
+    top: 20px;
+    right: 20px;
   }
 }/*# sourceMappingURL=Navbar.css.map */
