@@ -6,7 +6,14 @@ import Navbar from '../Navbar/Navbar';
 
 const Hero = () => {
   const handleResumeClick = () => {
-    console.log('Resume button clicked');
+    // Open the link in a new tab
+    window.open('https://flowcv.com/resume/36q2cuqi76', '_blank');
+
+    // Trigger the download of the PDF
+    const link = document.createElement('a');
+    link.href = '/Isaac_Adoga_Resume.pdf'; // Replace 'resume.pdf' with the actual name of your file in the public folder
+    link.download = 'Adoga_Isaac_Resume.pdf'; // Set the downloaded file name
+    link.click();
   };
 
   return (
